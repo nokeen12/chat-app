@@ -1,0 +1,5 @@
+.homepage{
+    display:flex;
+    background-color: var(--color-1);
+    height: 100vh;
+}
