@@ -1,8 +1,21 @@
-const app = require("./app");
+const express = require("express");
+const cors = require("cors");
+require("dotenv/config");
+require("./db");
 
-// ℹ️ Sets the PORT for our app to have access to it. If no env has been set, we hard code it to 3000
-const PORT = process.env.PORT || 3000;
+const app = express();
+const PORT = process.env.PORT || 5005;
 
-app.listen(PORT, () => {
-  console.log(`Server listening on port http://localhost:${PORT}`);
-});
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
+
+app.get('/', (req, res) =>{
+  res.send("Api Home");
+})
+
+const authRoutes = require('./routes/auth.routes');
+app.use("/auth", authRoutes)
+
+app.listen(PORT, () => console.log("Server is listening to port " + PORT));
+module.exports = app;
