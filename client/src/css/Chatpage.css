@@ -1,0 +1,46 @@
+.chatpage{
+    display:flex;
+
+    width: 100%;
+}
+.chatroom{
+    background-color: var(--color-2);
+    width: 90%;
+}
+.chatlog{
+    width: 100%;
+    height: 90%;
+}
+.chatbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    min-height: 100px;
+    background-color: var(--color-2);
+}
+.chattype{
+    width: 90%;
+    height: 50%;
+    border-radius: 15px;
+    background-color: var(--color-3);
+    color: whitesmoke;
+    margin-left: 10px;
+}
+.chattype:hover,
+.chattype:focus{
+    outline: none;
+    box-shadow:0 0 5px orangered;
+}
+.send{
+    background-color: var(--color-4);
+    /* border: 1px solid black; */
+    border: 0;
+    border-radius: 5px;
+    align-items: center;
+    width: 10%;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 50%;
+}

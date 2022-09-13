@@ -1,0 +1,26 @@
+nav{
+    display:flex;
+    flex-direction: column;
+    width: 10%;
+    min-width: 60px;
+    /* justify-content: flex-start; */
+    align-items: center;
+}
+#nav90{
+    height: 90%;
+}
+#settings{
+    display: flex;
+    height: 10%;
+    align-items: center;
+    justify-content: center;
+}
+#settings svg{
+    height: 50%;
+    opacity: 60%;
+}
+#settings svg:hover,
+#settings svg:focus{
+    opacity: 1;
+    filter: drop-shadow( 0px 0px 10px rgba(0, 0, 0, 1));
+}

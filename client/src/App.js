@@ -1,15 +1,16 @@
 import { Routes, Route } from "react-router-dom";
 import './App.css';
 import {
-  Homepage
+  Homepage,
+  Chatpage,
 } from "./pages";
 
 function App() {
   return (
     <div className="App">
-      {/* <Navbar /> */}
       <Routes>
-        <Route path="/" element={<Homepage />} />
+        <Route path="/l" element={<Homepage />} />
+        <Route path="/" element={<Chatpage />} />
         {/* <Route path="*" element={<ErrorPage />} /> */}
       </Routes>
     </div>
