@@ -7,29 +7,41 @@ const userSchema = new Schema(
       required: true
     },
     surname: {
-        type: String,
-        required: true
-      },
+      type: String,
+      required: true
+    },
+    username: {
+      type: String,
+      required: true
+    },
     email_address: {
-        type: String,
-        unique: true,
-        required: true
+      type: String,
+      unique: true,
+      required: true
     },
     age: {
-        type: Number,
-        required: true
+      type: Number,
+      required: true
     },
     password: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     friends_list: [{
       type: Schema.Types.ObjectId,
       ref: 'User'
     }],
+    friend_requests: [{
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+    }],
+    friend_invites: [{
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+    }],
     chat_list: [{
-        type: Schema.Types.ObjectId,
-        ref: 'ChatLog'
+      type: Schema.Types.ObjectId,
+      ref: 'ChatLog'
     }]
   },
   {
