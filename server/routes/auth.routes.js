@@ -3,8 +3,8 @@ const auth = require('../controllers/auth.js');
 const router = express.Router();
 const { isAuthenticated } = require('../middleware/jwt.middleware.js');
 
-router.post('/patientSignup', auth.userSignup);
-router.post('/patientLogin', auth.userLogin);
+router.post('/userSignup', auth.userSignup);
+router.post('/userLogin', auth.userLogin);
 
 router.get('/verify', isAuthenticated, (req,res)=>{
     console.log(`req.payload`, req.payload);

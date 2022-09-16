@@ -6,8 +6,8 @@ const saltRounds = 10;
 
 const userSignup = (req, res) => {
     try {
-        const { forename, surname, email_address, age, password, reenteredPassword } = req.body;
-        if(forename === '' || surname === '' || email_address === '' || age === '' || password === '' || reenteredPassword === ''){
+        const { email_address, username, password, reenteredPassword } = req.body;
+        if(username === '' || email_address === '' || password === '' || reenteredPassword === ''){
             res.status(400).json({message:"Fill out all fields"});
             return;
         }
@@ -34,12 +34,12 @@ const userSignup = (req, res) => {
             if(!foundUser) {
                 const salt = bcrypt.genSaltSync(saltRounds);
                 const hashedPassword = bcrypt.hashSync(password, salt);
-                return Doctor.create({ dr_forename, dr_surname, title, specialty, hospital, years_expirience, phone_number, email_address, password: hashedPassword });
+                return User.create({ username, email_address, password: hashedPassword });
             }
         }).then(createdUser =>{
             if(createdUser){
-                const { forename, surname, email_address, age } = createdUser;
-                const user = { forename, surname, email_address, age };
+                const { username, email_address } = createdUser;
+                const user = { username, email_address };
                 res.status(201).json({ user: user });
             }
         })
@@ -67,8 +67,8 @@ const userLogin = (req, res) => {
         const passwordCorrect = bcrypt.compareSync(password, foundUser.password);
     
         if (passwordCorrect) {
-            const { _id, forename, surname, email_address, age } = foundUser;
-            const payload = { _id, forename, surname, email_address, age };
+            const { _id, username, email_address } = foundUser;
+            const payload = { _id, username, email_address };
             const authToken = jwt.sign( 
             payload,
             process.env.TOKEN_SECRET,
