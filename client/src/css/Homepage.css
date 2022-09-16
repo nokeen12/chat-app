@@ -44,3 +44,20 @@ button{
     background-color: darkorange;
     color: white;
 }
+.homepage form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.homepage form input{
+    margin-bottom: 15px;
+    height: 25px;
+    width: 220px;
+    border: 0;
+    border-radius: 10px;
+}
+.homepage form label{
+    margin-bottom: 15px;
+}

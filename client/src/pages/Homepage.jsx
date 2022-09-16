@@ -1,9 +1,10 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import '../css/Homepage.css';
 
 const API_URL = 'http://localhost:5005';
+
 
 export default function Homepage(){
     const [email_address, setEmail] = useState("");
@@ -22,7 +23,6 @@ export default function Homepage(){
         const requestBody = { email_address, username, password, reenteredPassword };
         axios.post(`${API_URL}/auth/userSignup`, requestBody)
             .then(response => {
-                console.log(`${API_URL}/auth/userSignup`)
                 navigate('/');
             })
             .catch((error) => console.log(error));
@@ -38,31 +38,32 @@ export default function Homepage(){
                     <button>Log In</button>
                 </div> */}
                 <form onSubmit={handleSignupSubmit}>
-                    <label>*Username:</label>
+                    <label>Create an Account</label>
                     <input 
                         type="text"
                         name="username"
+                        placeholder="Username"
                         value={username}
                         onChange={handleUsername}
                     />
-                    <label>*Email:</label>
                     <input 
                         type="email"
                         name="email"
+                        placeholder="Email"
                         value={email_address}
                         onChange={handleEmail}
                     />
-                    <label>*Password:</label>
                     <input 
                         type="password"
                         name="password"
+                        placeholder="Password"
                         value={password}
                         onChange={handlePassword}
                     />
-                    <label>*Reenter Password:</label>
                     <input 
                         type="password"
                         name="password"
+                        placeholder="Reenter Password"
                         value={reenteredPassword}
                         onChange={handleReenteredPassword}
                     />
