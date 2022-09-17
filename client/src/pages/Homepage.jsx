@@ -5,7 +5,6 @@ import '../css/Homepage.css';
 
 const API_URL = 'http://localhost:5005';
 
-
 export default function Homepage(){
     const [email_address, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -26,14 +25,6 @@ export default function Homepage(){
                 navigate('/');
             })
             .catch((error) => console.log(error));
-    }
-    const checkUsers = (e) => {
-        e.preventDefault();
-        axios.get(`${API_URL}/user/getusers`)
-        .then(response => {
-            console.log(response.data.userList)
-        })
-        .catch(err => console.log(err))
     }
     return(
         <div className="homepage">
@@ -77,7 +68,6 @@ export default function Homepage(){
                     />
                     <button type="submit">Sign Up</button>
                 </form>
-                <button onClick={checkUsers}>Check Users</button>
             </div>
         </div>
     )

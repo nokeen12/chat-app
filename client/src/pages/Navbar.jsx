@@ -1,10 +1,16 @@
-import "../css/Navbar.css"
+import "../css/Navbar.css";
+import { useState } from 'react';
+import axios from "axios";
+
+const API_URL = 'http://localhost:5005';
+
 export default function Navbar(){
     return(
         <nav>
             <div id="nav90">
                 navbar
                 <a href="/l">home</a>
+                <SearchList />
             </div>
             <div id="settings">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -13,5 +19,29 @@ export default function Navbar(){
                 </svg>
             </div>
         </nav>
+    )
+}
+
+function SearchList(props) {
+    const [ userList, setUserList ] = useState([]);
+
+    const checkUsers = (e) => {
+        e.preventDefault();
+        axios.get(`${API_URL}/user/getusers`)
+        .then(response => {
+            setUserList(response.data.userList)
+        })
+        .catch(err => console.log(err))
+    }
+
+    return (
+        <div>
+            <button onClick={checkUsers}>Check Users</button>
+            <ul>
+                {userList.map((user, index) => (
+                    <li key={index}>{user}</li>
+                ))}
+            </ul>
+        </div>
     )
 }
