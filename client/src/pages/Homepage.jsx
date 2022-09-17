@@ -27,6 +27,14 @@ export default function Homepage(){
             })
             .catch((error) => console.log(error));
     }
+    const checkUsers = (e) => {
+        e.preventDefault();
+        axios.get(`${API_URL}/user/getusers`)
+        .then(response => {
+            console.log(response.data.userList)
+        })
+        .catch(err => console.log(err))
+    }
     return(
         <div className="homepage">
             <div className="popup">
@@ -69,6 +77,7 @@ export default function Homepage(){
                     />
                     <button type="submit">Sign Up</button>
                 </form>
+                <button onClick={checkUsers}>Check Users</button>
             </div>
         </div>
     )
