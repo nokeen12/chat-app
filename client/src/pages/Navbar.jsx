@@ -1,5 +1,5 @@
 import "../css/Navbar.css";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from "axios";
 
 const API_URL = 'http://localhost:5005';
@@ -24,22 +24,38 @@ export default function Navbar(){
 
 function SearchList(props) {
     const [ userList, setUserList ] = useState([]);
+    const [ searchInput, setSearchInput ] = useState("");
 
-    const checkUsers = (e) => {
+    const handleChange = (e) => {
         e.preventDefault();
+        setSearchInput(e.target.value);
+    };
+        
+    useEffect(()=>{
         axios.get(`${API_URL}/user/getusers`)
         .then(response => {
             setUserList(response.data.userList)
         })
         .catch(err => console.log(err))
-    }
+    }, [])
 
+    const loadChat = (e) => {
+        e.preventDefault();
+        axios.get(`${API_URL}/user/getchat/${e.target.innerHTML}`)
+        .then(response => {
+            console.log(response.data)
+        })
+    }
     return (
         <div>
-            <button onClick={checkUsers}>Check Users</button>
+            <input
+                type="text"
+                placeholder="Search here"
+                onChange={handleChange}
+                value={searchInput} />
             <ul>
                 {userList.map((user, index) => (
-                    <li key={index}>{user}</li>
+                    <li key={index} onClick={loadChat}>{user}</li>
                 ))}
             </ul>
         </div>

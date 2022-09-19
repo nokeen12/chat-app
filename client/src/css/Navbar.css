@@ -3,7 +3,6 @@ nav{
     flex-direction: column;
     width: 10%;
     min-width: 60px;
-    /* justify-content: flex-start; */
     align-items: center;
 }
 #nav90{
@@ -26,4 +25,7 @@ nav{
 #settings svg:focus{
     opacity: 1;
     filter: drop-shadow( 0px 0px 10px rgba(0, 0, 0, 1));
+}
+input{
+    width: 100px;
 }
