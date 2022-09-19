@@ -19,9 +19,20 @@ const getUsers = (req, res) => {
     }).catch(err => res.status(500).json({ message: "Internal Server Error" }))
 }
 
+const getChat = (req, res) => {
+    const username = req.params.id//grabs username of user selected
+    //need to also send user's id in req
+    User.findOne(username) //we will get their id to find the matching chat
+    .then(user => {
+
+    })
+    res.status(201).json({username});
+}
+
 module.exports = {
     getFriends,
     sendFriendRequest,
     acceptFriendRequest,
-    getUsers
+    getUsers,
+    getChat
 }
