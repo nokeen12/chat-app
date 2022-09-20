@@ -1,14 +1,14 @@
-import "../css/Navbar.css";
+import "../css/Sidebar.css";
 import { useState, useEffect } from 'react';
 import axios from "axios";
 
 const API_URL = 'http://localhost:5005';
 
-export default function Navbar(){
+export default function Sidebar(){
     return(
         <nav>
-            <div id="nav90">
-                navbar
+            <div id="sidebar">
+                sidebar
                 <a href="/l">home</a>
                 <SearchList />
             </div>
