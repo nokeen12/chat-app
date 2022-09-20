@@ -4,13 +4,16 @@ import {
   Homepage,
   Chatpage,
 } from "./pages";
+import { useContext } from 'react';
+import { AuthContext } from "./context/auth.context";
 
 function App() {
+  const { isLoggedIn } = useContext(AuthContext);
   return (
     <div className="App">
       <Routes>
         <Route path="/l" element={<Homepage />} />
-        <Route path="/" element={<Chatpage />} />
+        <Route path="/" element={isLoggedIn ? <Chatpage /> : <Homepage />} />
         {/* <Route path="*" element={<ErrorPage />} /> */}
       </Routes>
     </div>
