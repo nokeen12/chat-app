@@ -10,8 +10,9 @@ export default function Homepage(){
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
     const [reenteredPassword, setReenteredPassword] = useState("");
-    const [visA, setVisA] = useState(false)
-    const [visB, setVisB] = useState(false)
+    const [visA, setVisA] = useState(false);
+    const [visB, setVisB] = useState(false);
+    const [errorMessage, setErrorMessage] = useState(undefined);
     const navigate = useNavigate();
 
     const handleEmail = (e) => setEmail(e.target.value);
@@ -28,7 +29,10 @@ export default function Homepage(){
             .then(response => {
                 navigate('/');
             })
-            .catch((error) => console.log(error));
+            .catch((error) => {
+                const errorDescription = error.response.data.message;
+                setErrorMessage(errorDescription);
+              })
     }
     const handleLoginSubmit = (e) => {
         e.preventDefault();
@@ -37,7 +41,10 @@ export default function Homepage(){
             .then(response => {
                 navigate('/l');
             })
-            .catch((error) => console.log(error));
+            .catch((error) => {
+                const errorDescription = error.response.data.message;
+                setErrorMessage(errorDescription);
+              })
     }
 
     return(
@@ -109,6 +116,7 @@ export default function Homepage(){
                         <a href="" onClick={swapStateB}>Go Back</a>
                     </form>
                 }
+                { errorMessage && <p className="error-message">{errorMessage}</p> }
             </div>
         </div>
     )
