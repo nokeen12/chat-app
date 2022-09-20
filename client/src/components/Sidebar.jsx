@@ -1,6 +1,7 @@
 import "../css/Sidebar.css";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import axios from "axios";
+import { AuthContext } from '../context/auth.context';
 
 const API_URL = 'http://localhost:5005';
 
@@ -25,6 +26,7 @@ export default function Sidebar(){
 function SearchList(props) {
     const [ userList, setUserList ] = useState([]);
     const [ searchInput, setSearchInput ] = useState("");
+    const { user, logOutUser } = useContext(AuthContext);
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -41,7 +43,8 @@ function SearchList(props) {
 
     const loadChat = (e) => {
         e.preventDefault();
-        axios.get(`${API_URL}/user/getchat/${e.target.innerHTML}`)
+        const requestBody = { friend: e.target.innerHTML, current: user._id}
+        axios.post(`${API_URL}/user/getchat`, requestBody)
         .then(response => {
             console.log(response.data)
         })
@@ -58,6 +61,7 @@ function SearchList(props) {
                     <li key={index} onClick={loadChat}>{user}</li>
                 ))}
             </ul>
+            <button onClick={logOutUser}>Log Out</button>
         </div>
     )
 }

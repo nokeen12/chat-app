@@ -20,13 +20,17 @@ const getUsers = (req, res) => {
 }
 
 const getChat = (req, res) => {
-    const username = req.params.id//grabs username of user selected
-    //need to also send user's id in req
-    User.findOne(username) //we will get their id to find the matching chat
-    .then(user => {
+    const { friend, current } = req.body
 
+    User.findOne({_id: current})
+    .then(user => {
+        console.log(user)
     })
-    res.status(201).json({username});
+    User.findOne({username: friend})
+    .then(user => {
+        console.log(user)
+    })
+    res.status(201).json({current});
 }
 
 module.exports = {
