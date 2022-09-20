@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import '../css/Homepage.css';
@@ -29,7 +29,8 @@ export default function Homepage(){
         const requestBody = { email_address, username, password, reenteredPassword };
         axios.post(`${API_URL}/auth/userSignup`, requestBody)
             .then(response => {
-                navigate('/l');
+                swapStateA(!visA)
+                swapStateB(!visB)
             })
             .catch((error) => {
                 const errorDescription = error.response.data.message;
