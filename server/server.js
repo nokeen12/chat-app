@@ -18,6 +18,8 @@ const authRoutes = require('./routes/auth.routes');
 app.use("/auth", authRoutes)
 const userRoutes = require('./routes/user.routes');
 app.use("/user", userRoutes)
+const chatRoutes = require('./routes/chat.routes');
+app.use("/chat", chatRoutes)
 
 app.listen(PORT, () => console.log("Server is listening to port " + PORT));
 module.exports = app;

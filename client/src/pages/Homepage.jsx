@@ -97,7 +97,7 @@ export default function Homepage(){
                             onChange={handleReenteredPassword}
                         />
                         <button type="submit">Sign Up</button>
-                        <a href="" onClick={swapStateA}>Go Back</a>
+                        <button onClick={swapStateA}>Go Back</button>
                     </form>
                 }
                 {visB &&
@@ -118,7 +118,7 @@ export default function Homepage(){
                             onChange={handlePassword}
                         />
                         <button type="submit">Log In</button>
-                        <a href="" onClick={swapStateB}>Go Back</a>
+                        <button onClick={swapStateB}>Go Back</button>
                     </form>
                 }
                 { errorMessage && <p className="error-message">{errorMessage}</p> }
