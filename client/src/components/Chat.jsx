@@ -1,6 +1,9 @@
 import '../css/Chat.css'
+// import { useContext } from "react";
+// import { AuthContext } from '../context/auth.context';
 
 export default function Chat(){
+    // const { user } = useContext(AuthContext);
     return(
         <div className="chatroom">
             <div className="chatlog">

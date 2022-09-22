@@ -5,13 +5,12 @@ import { AuthContext } from '../context/auth.context';
 
 const API_URL = 'http://localhost:5005';
 
-export default function Sidebar(){
+export default function Sidebar({loadChat}){
     return(
         <nav>
             <div id="sidebar">
-                sidebar
                 <a href="/l">home</a>
-                <SearchList />
+                <SearchList loadChat={loadChat} />
             </div>
             <div id="settings">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -23,10 +22,10 @@ export default function Sidebar(){
     )
 }
 
-function SearchList(props) {
+function SearchList({loadChat}) {
     const [ userList, setUserList ] = useState([]);
     const [ searchInput, setSearchInput ] = useState("");
-    const { user, logOutUser } = useContext(AuthContext);
+    const { logOutUser } = useContext(AuthContext);
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -41,14 +40,6 @@ function SearchList(props) {
         .catch(err => console.log(err))
     }, [])
 
-    const loadChat = (e) => {
-        e.preventDefault();
-        const requestBody = { friend: e.target.innerHTML, current: user._id}
-        axios.post(`${API_URL}/user/getchat`, requestBody)
-        .then(response => {
-            console.log(response.data)
-        })
-    }
     return (
         <div>
             <input
