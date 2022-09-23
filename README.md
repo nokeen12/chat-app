@@ -21,3 +21,7 @@ There may be many bugs as this is still in development
 3. Inside the server folder, install dependencies - `npm i bcrypt jsonwebtoken express express-jwt mongoose cors dotenv nodemon`
 4. Optional: Inside the server folder, create .env file - Add PORT= any port you'd like to use and MONGODB_URI= the link to your mongoDB server
 5. Run `npm start` in the client folder and `nodemon server.js` in the server folder to start the application on http://localhost:3000/
+
+## Known Issues
+* Search bar has 0 functionality
+* Sent messages aren't currently displayed in application or stored in db
