@@ -12,6 +12,11 @@ This project was made initially for gaining experience in implementing an online
 * Create working search bar that filters through created usernames
 * Display sent messages to users with minimal delay
 <!--- add 1st example image here --->
+## Features
+
+* blank
+* blank
+
 ## How to run application
 
 There may be many bugs as this is still in development
@@ -25,3 +30,7 @@ There may be many bugs as this is still in development
 ## Known Issues
 * Search bar has 0 functionality
 * Sent messages aren't currently displayed in application or stored in db
+
+### Tech
+
+JavaScript, MongoDB, Express, React, Node.js, HTML, CSS
