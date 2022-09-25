@@ -33,7 +33,7 @@ function SearchList({loadChat}) {
     };
         
     useEffect(()=>{
-        axios.get(`${API_URL}/user/getusers`)
+        axios.get(`${API_URL}/user/users`)
         .then(response => {
             setUserList(response.data.userList)
         })

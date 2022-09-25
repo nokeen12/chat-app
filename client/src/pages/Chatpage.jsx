@@ -13,7 +13,7 @@ export default function Chatpage(){
     const loadChat = (e) => {
         e.preventDefault();
         const requestBody = { friend: e.target.innerHTML, current: user._id}
-        axios.post(`${API_URL}/user/getchat`, requestBody)
+        axios.post(`${API_URL}/user/chat`, requestBody)
         .then(response => {
             setChat(response.data.chat)
         })
