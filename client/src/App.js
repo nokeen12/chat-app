@@ -3,6 +3,7 @@ import './App.css';
 import {
   Homepage,
   Chatpage,
+  Testpage,
 } from "./pages";
 import { useContext } from 'react';
 import { AuthContext } from "./context/auth.context";
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/l" element={<Homepage />} />
         <Route path="/" element={isLoggedIn ? <Chatpage /> : <Homepage />} />
+        <Route path="/test" element={<Testpage />} />
         {/* <Route path="*" element={<ErrorPage />} /> */}
       </Routes>
     </div>
