@@ -2,8 +2,9 @@ const User = require("../models/User.model");
 const ChatLog = require("../models/ChatLog.model");
 
 const getFriends = (req, res) => {
-    const { user } = req.body
-    User.findById({_id: user})
+    const user = req.params
+    console.log(user)
+    User.findById(user.id)
     .then(foundUser =>{
         res.status(201).json({friendsList: foundUser.friends_list})
     })
