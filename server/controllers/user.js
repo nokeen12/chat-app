@@ -2,14 +2,20 @@ const User = require("../models/User.model");
 const ChatLog = require("../models/ChatLog.model");
 
 const getFriends = (req, res) => {
+    const { user } = req.body
+    User.findById({_id: user})
+    .then(foundUser =>{
+        res.status(201).json({friendsList: foundUser.friends_list})
+    })
+    .catch(err => res.status(500).json({ message: "Internal Server Error" }))
 }
 
 const sendFriendRequest = (req, res) => {
-    const { username } = req.body;
+    const { user, friend } = req.body;
 }
 
 const acceptFriendRequest = (req, res) => {
-    const { username } = req.body;
+    const { user, friend } = req.body;
 }
 
 const getUsers = (req, res) => {
