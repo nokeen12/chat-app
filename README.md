@@ -22,10 +22,10 @@ This project was made initially for gaining experience in implementing an online
 There may be many bugs as this is still in development
 
 1. Clone this project
-2. Inside the client folder, install dependencies - `npm i axios react react-dom react-router-dom react-scripts`
-3. Inside the server folder, install dependencies - `npm i bcrypt jsonwebtoken express express-jwt mongoose cors dotenv nodemon`
-4. Optional: Inside the server folder, create .env file - Add PORT= any port you'd like to use and MONGODB_URI= the link to your mongoDB server
-5. Run `npm start` in the client folder and `nodemon server.js` in the server folder to start the application on http://localhost:3000/
+2. Inside the client folder, install dependencies with the command - `npm install`
+3. Inside the server folder, install dependencies with the command - `npm install`
+3. Optional: Inside the server folder, create .env file - Add PORT= any port you'd like to use and MONGODB_URI= the link to your mongoDB server
+4. Run `npm start` in the client folder and `nodemon server.js` in the server folder to start the application on http://localhost:3000/
 
 ## Known Issues
 * Search bar has 0 functionality
