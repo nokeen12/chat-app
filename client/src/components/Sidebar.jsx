@@ -22,7 +22,7 @@ export default function Sidebar({loadChat}){
     )
 }
 
-function SearchList({loadChat}) {
+function SearchList({loadChat, sendMessage}) {
     const [ userList, setUserList ] = useState([]);
     const [ searchInput, setSearchInput ] = useState("");
     const { logOutUser } = useContext(AuthContext);
@@ -52,6 +52,7 @@ function SearchList({loadChat}) {
                     <li key={index} onClick={loadChat}>{user}</li>
                 ))}
             </ul>
+            <button onClick={sendMessage}>Send That Message</button>
             <button onClick={logOutUser}>Log Out</button>
         </div>
     )

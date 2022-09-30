@@ -10,6 +10,18 @@ export default function Chatpage(){
     const { user } = useContext(AuthContext);
     const [ chat, setChat ] = useState("");
 
+
+    const socket = new WebSocket('ws://localhost:4000');
+
+    socket.addEventListener('open', () => {
+        console.log('Connected to WS Server')
+    });
+    socket.addEventListener('message', (e) => {
+        console.log('Message from server ', e.data);
+    })
+    function sendMessage(){
+        socket.send('Hello From Client1!');
+    }
     const loadChat = (e) => {
         e.preventDefault();
         const requestBody = { friend: e.target.innerHTML, current: user._id}
@@ -20,7 +32,7 @@ export default function Chatpage(){
     }
     return(
         <div className="chatpage">
-            <Sidebar loadChat={loadChat} />
+            <Sidebar loadChat={loadChat} sendMessage={sendMessage}/>
             <Chat chat={chat}/>
         </div>
     )
