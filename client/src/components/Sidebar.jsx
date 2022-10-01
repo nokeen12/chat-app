@@ -41,7 +41,8 @@ function SearchList({loadChat, sendMessage}) {
     }, [])
 
     return (
-        <div>
+        <div id="side">
+            <button onClick={logOutUser}>Log Out</button>
             <input
                 type="text"
                 placeholder="Search here"
@@ -52,8 +53,7 @@ function SearchList({loadChat, sendMessage}) {
                     <li key={index} onClick={loadChat}>{user}</li>
                 ))}
             </ul>
-            <button onClick={sendMessage}>Send That Message</button>
-            <button onClick={logOutUser}>Log Out</button>
+            {/* <button onClick={sendMessage}>Send That Message</button> */}
         </div>
     )
 }
