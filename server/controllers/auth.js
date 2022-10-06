@@ -24,8 +24,9 @@ const userSignup = (req, res) => {
         if (password !== reenteredPassword) {
             res.status(400).json({ message: 'Passwords must match.' });
             return;
-        } 
-        User.findOne({ email_address })
+        }
+        const email = email_address.toLowerCase();
+        User.findOne({ email_address: email })
         .then((foundUser) => {
             if (foundUser) {
                 res.status(400).json({ message: "Email address in use." });
@@ -34,7 +35,7 @@ const userSignup = (req, res) => {
             if(!foundUser) {
                 const salt = bcrypt.genSaltSync(saltRounds);
                 const hashedPassword = bcrypt.hashSync(password, salt);
-                return User.create({ username, email_address, password: hashedPassword });
+                return User.create({ username, email_address: email, password: hashedPassword });
             }
         }).then(createdUser =>{
             if(createdUser){
@@ -52,13 +53,13 @@ const userSignup = (req, res) => {
 
 const userLogin = (req, res) => {
     const { email_address, password } = req.body;
-
+    const email = email_address.toLowerCase();
     if (email_address === '' || password === '') {
         res.status(400).json({ message: "Provide email and password." });
         return;
     }
 
-    User.findOne({ email_address })
+    User.findOne({ email_address: email })
     .then((foundUser) => {  
         if (!foundUser) {
             res.status(401).json({ message: "User not found." })
@@ -67,8 +68,8 @@ const userLogin = (req, res) => {
         const passwordCorrect = bcrypt.compareSync(password, foundUser.password);
     
         if (passwordCorrect) {
-            const { _id, username, email_address } = foundUser;
-            const payload = { _id, username, email_address };
+            const { _id, username, email } = foundUser;
+            const payload = { _id, username, email };
             const authToken = jwt.sign( 
             payload,
             process.env.TOKEN_SECRET,
