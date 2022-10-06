@@ -7,28 +7,33 @@ import { AuthContext } from '../context/auth.context';
 const API_URL = 'http://localhost:5005';
 
 export default function Homepage(){
-    const [email_address, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [username, setUsername] = useState("");
-    const [reenteredPassword, setReenteredPassword] = useState("");
+    const [user, setUser] = useState({
+        email_address: "",
+        username: "",
+        password: "",
+        reenteredPassword: "",
+    });
     const [visA, setVisA] = useState(false);
     const [visB, setVisB] = useState(false);
     const [errorMessage, setErrorMessage] = useState(undefined);
     const navigate = useNavigate();
     const { storeToken, authenticateUser } = useContext(AuthContext);
 
-    const handleEmail = (e) => setEmail(e.target.value);
-    const handlePassword = (e) => setPassword(e.target.value);
-    const handleUsername = (e) => setUsername(e.target.value);
-    const handleReenteredPassword = (e) => setReenteredPassword(e.target.value);
+    //fills in 'user' object with text fields
+    const handleChange = (e) => {
+        setUser((oldUser) => {
+          return { ...oldUser, [e.target.name]: e.target.value };
+        });
+    };
+
+    //toggling menu visibility
     const swapStateA = (e) => setVisA(!visA);
     const swapStateB = (e) => setVisB(!visB);
 
     const handleSignupSubmit = (e) => {
         e.preventDefault();
-        const requestBody = { email_address, username, password, reenteredPassword };
-        axios.post(`${API_URL}/auth/userSignup`, requestBody)
-            .then(response => {
+        axios.post(`${API_URL}/auth/userSignup`, user)
+            .then(() => {
                 swapStateA(!visA)
                 swapStateB(!visB)
             })
@@ -39,8 +44,7 @@ export default function Homepage(){
     }
     const handleLoginSubmit = (e) => {
         e.preventDefault();
-        const requestBody = { email_address, password };
-        axios.post(`${API_URL}/auth/userLogin`, requestBody)
+        axios.post(`${API_URL}/auth/userLogin`, user)
             .then(response => {
                 storeToken(response.data.authToken)
                 authenticateUser();
@@ -72,29 +76,29 @@ export default function Homepage(){
                             type="text"
                             name="username"
                             placeholder="Username"
-                            value={username}
-                            onChange={handleUsername}
+                            value={user.username}
+                            onChange={handleChange}
                         />
                         <input 
                             type="email"
-                            name="email"
+                            name="email_address"
                             placeholder="Email"
-                            value={email_address}
-                            onChange={handleEmail}
+                            value={user.email_address}
+                            onChange={handleChange}
                         />
                         <input 
                             type="password"
                             name="password"
                             placeholder="Password"
-                            value={password}
-                            onChange={handlePassword}
+                            value={user.password}
+                            onChange={handleChange}
                         />
                         <input 
                             type="password"
-                            name="password"
+                            name="reenteredPassword"
                             placeholder="Reenter Password"
-                            value={reenteredPassword}
-                            onChange={handleReenteredPassword}
+                            value={user.reenteredPassword}
+                            onChange={handleChange}
                         />
                         <button type="submit">Sign Up</button>
                         <button onClick={swapStateA}>Go Back</button>
@@ -105,17 +109,17 @@ export default function Homepage(){
                         <label>Log In</label>
                         <input 
                             type="email"
-                            name="email"
+                            name="email_address"
                             placeholder="Email"
-                            value={email_address}
-                            onChange={handleEmail}
+                            value={user.email_address}
+                            onChange={handleChange}
                         />
                         <input 
                             type="password"
                             name="password"
                             placeholder="Password"
-                            value={password}
-                            onChange={handlePassword}
+                            value={user.password}
+                            onChange={handleChange}
                         />
                         <button type="submit">Log In</button>
                         <button onClick={swapStateB}>Go Back</button>

@@ -7,8 +7,8 @@ router.post('/userSignup', auth.userSignup);
 router.post('/userLogin', auth.userLogin);
 
 router.get('/verify', isAuthenticated, (req,res)=>{
-    console.log(`req.payload`, req.payload);
     res.status(200).json(req.payload);
+    console.log("User Logged In")
 })
 
 module.exports = router;
