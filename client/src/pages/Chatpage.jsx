@@ -20,7 +20,7 @@ export default function Chatpage(){
         console.log('Message from server ', e.data);
     })
     function sendMessage(){
-        socket.send('Hello From Client1!');
+        socket.send('Hello From Client1! -socket');
     }
     const loadChat = (e) => {
         e.preventDefault();
