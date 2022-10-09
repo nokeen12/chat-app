@@ -5,12 +5,12 @@ import { AuthContext } from '../context/auth.context';
 
 const API_URL = 'http://localhost:5005';
 
-export default function Sidebar({loadChat, sendMessage}){
+export default function Sidebar({loadChat}){
     return(
         <nav>
             <div id="sidebar">
                 <a href="/l">home</a>
-                <SearchList loadChat={loadChat} sendMessage={sendMessage}/>
+                <SearchList loadChat={loadChat}/>
             </div>
             <div id="settings">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -22,7 +22,7 @@ export default function Sidebar({loadChat, sendMessage}){
     )
 }
 
-function SearchList({loadChat, sendMessage}) {
+function SearchList({loadChat}) {
     const [ userList, setUserList ] = useState([]);
     const [ searchInput, setSearchInput ] = useState("");
     const { logOutUser } = useContext(AuthContext);
@@ -53,7 +53,6 @@ function SearchList({loadChat, sendMessage}) {
                     <li key={index} onClick={loadChat}>{user}</li>
                 ))}
             </ul>
-            <button onClick={sendMessage}>Test Message</button>
         </div>
     )
 }

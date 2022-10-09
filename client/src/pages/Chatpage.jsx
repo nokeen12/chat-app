@@ -32,8 +32,8 @@ export default function Chatpage(){
     }
     return(
         <div className="chatpage">
-            <Sidebar loadChat={loadChat} sendMessage={sendMessage}/>
-            <Chat chat={chat}/>
+            <Sidebar loadChat={loadChat}/>
+            <Chat chat={chat} sendMessage={sendMessage}/>
         </div>
     )
 }

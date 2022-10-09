@@ -2,7 +2,7 @@ import '../css/Chat.css'
 // import { useContext } from "react";
 // import { AuthContext } from '../context/auth.context';
 
-export default function Chat({chat}){
+export default function Chat({chat, sendMessage}){
     //submitting form should send axios post to update chat
     
     //should load each message with className message a/b depending on userId
@@ -18,7 +18,7 @@ export default function Chat({chat}){
             </div>
             <form className="chatbox">
                 <input className="chattype" type='text' name='message' placeholder='Message...'/>
-                <input type="button" value="Send" className="send"/>
+                <input type="button" value="Send" className="send" onClick={sendMessage}/>
             </form>
         </div>
     )
