@@ -13,7 +13,6 @@ const wss = new WebSocket.Server({ port: '4000' })
 
 wss.on("connection", function connection(ws){
   console.log("A new client Connected!")
-  ws.send("Welcome New Client!"); //ws send goes to the client
 
   ws.on('message', function incoming(data, isBinary){
     console.log('received %s', data)

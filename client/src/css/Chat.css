@@ -2,7 +2,7 @@
     background-color: var(--color-2);
     width: 90%;
 }
-.chatlog{
+#chatlog{
     display: flex;
     flex-direction: column;
     width: 100%;
