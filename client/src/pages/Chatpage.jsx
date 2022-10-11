@@ -19,8 +19,8 @@ export default function Chatpage(){
     socket.addEventListener('message', (e) => {
         console.log('Message from server ', e.data);
     })
-    function sendMessage(){
-        socket.send('Hello From Client1! -socket');
+    function sendMessage(e){
+        socket.send(e);
     }
     const loadChat = (e) => {
         e.preventDefault();
