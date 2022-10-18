@@ -13,10 +13,10 @@ code {
 }
 
 :root{
-  --color-1:#212129;
-  --color-2:#323949;
-  --color-3:#3d3e51;
-  --color-4:#40445a;
-  --color-5:#4c5265;
+  --color-1:rgba(7%, 7%, 7%, 100%);
+  --color-2:rgba(255, 255, 255, 5%);
+  --color-3:rgba(255, 255, 255, 7%);
+  --color-4:rgba(255, 255, 255, 8%);
+  --color-5:rgba(255, 255, 255, 11%);
   --color-6:orangered;
 }

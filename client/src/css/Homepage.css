@@ -2,13 +2,13 @@
     display:flex;
     justify-content: center;
     align-items:center;
-    background-color: var(--color-2);
+    background-color: var(--color-1);
     width: 100%;
 }
 .popup{
     display:flex;
     flex-direction: column;
-    background-color: var(--color-3);
+    background-color: var(--color-2);
     width: 80%;
     height: 80%;
     border-radius: 20px;

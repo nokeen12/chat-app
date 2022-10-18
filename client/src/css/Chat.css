@@ -15,13 +15,13 @@
     width: 100%;
     height: 10%;
     min-height: 100px;
-    background-color: var(--color-2);
+    /* background-color: var(--color-2); */
 }
 .chattype{
     width: 90%;
     height: 50%;
     border-radius: 15px;
-    background-color: var(--color-3);
+    background-color: var(--color-2);
     color: whitesmoke;
     margin-left: 10px;
 }
@@ -29,22 +29,6 @@
 .chattype:focus{
     outline: none;
     box-shadow:0 0 5px orangered;
-}
-.send{
-    background-color: var(--color-5);
-    color: white;
-    border: 0;
-    border-radius: 5px;
-    align-items: center;
-    width: 10%;
-    min-width: 42px;
-    margin-left: 10px;
-    margin-right: 10px;
-    height: 50%;
-}
-.send:hover,
-.send:focus{
-    box-shadow: 0 0 5px white;
 }
 .message{
     display: flex;
