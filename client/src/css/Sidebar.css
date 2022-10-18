@@ -2,14 +2,16 @@ nav{
     display:flex;
     flex-direction: column;
     width: 10%;
-    min-width: 60px;
+    min-width: 100px;
     align-items: center;
+    overflow-x: hidden;
 }
 #sidebar{
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 90%;
+    width: 100%;
 }
 #settings{
     display: flex;
@@ -30,9 +32,14 @@ nav{
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+}
+#side > button{
+    max-width: 100%;
 }
 input{
-    width: 90%;
+    height: 30px; 
+    max-width: 90%;
 }
 ul{
     width: 90%;
