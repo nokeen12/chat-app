@@ -9,7 +9,7 @@ import { useState } from 'react';
 export default function Chatpage(){
     // const { user } = useContext(AuthContext);
     const [ chat, setChat ] = useState([]);//will be used to store chat messages in dm's/groupchats, not in global
-
+    const [ newMessage, setNewMessage ] = useState('')//use to store and send messages to db
 
     const socket = new WebSocket('ws://localhost:4000');
 
@@ -17,8 +17,8 @@ export default function Chatpage(){
         console.log('Connected to WS Server')
     });
     socket.addEventListener('message', (e) => {
-        console.log('Message from server:', e.data);
         showMessage(e.data, false) //adds messages from other users to screen
+        setNewMessage(e.data)
     })
     function sendMessage(e){
         socket.send(e.message);

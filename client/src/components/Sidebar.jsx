@@ -6,6 +6,7 @@ import { AuthContext } from '../context/auth.context';
 const API_URL = 'http://localhost:5005';
 
 export default function Sidebar({loadChat}){
+    const [ isOpen, setIsOpen ] = useState(false)//will be used to open and close sidebar
     return(
         <nav>
             <div id="sidebar">
