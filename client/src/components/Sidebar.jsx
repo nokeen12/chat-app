@@ -12,13 +12,12 @@ export default function Sidebar({loadChat}){
         e.preventDefault();
         setIsOpen(!isOpen)
         if(!isOpen){
-            document.getElementById("nav").style.minWidth = '80%'
-            document.getElementById("sidebar").style.transform = 'translateY(-100%)'
+            document.getElementById("nav").style.animation = 'slideRight 2s forwards'
+            document.getElementById("sidebar").style.animation = 'slideUp 2s forwards'
         }else{
-            document.getElementById("nav").style.minWidth = '100px'
-            document.getElementById("sidebar").style.transform = 'translateY(0)'
+            document.getElementById("nav").style.animation = 'slideLeft 2s backwards'
+            document.getElementById("sidebar").style.animation = 'slideDown 2s backwards'
         }
-        // !isOpen ? document.getElementById("nav").style.minWidth = '80%'  : document.getElementById("nav").style.minWidth = '100px';
     }
     return(
         <nav id="nav">
