@@ -2,15 +2,15 @@
 
 ## A web chat application that allows for users to add each other as friends, message and create group chats.
 
-This project was made initially for gaining experience in implementing an online chat feature into a full application. Since then, it has evolved into it's own full stack web application.
+This project was made initially for practicing and gaining experience in implementing an online chat feature into a full application. Since then, it has evolved into it's own full stack web application.
 
 ## Current Goals
 
 * Create a REST API that allows for full CRUD operations on users, messages and group chats
 * Add sending multiple filetypes in chats
-* Implement chat customization- changing message bubble colors, font size and background theme through settings.
+* Implement app customization- changing message bubble colors, font size and background theme through settings.
 * Create working search bar that filters through created usernames
-* Display sent messages to users with minimal delay
+* Display sent messages to users with minimal delay using WebSocket API
 <!--- add 1st example image here --->
 ## Features
 
