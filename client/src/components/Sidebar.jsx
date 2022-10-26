@@ -11,7 +11,14 @@ export default function Sidebar({loadChat}){
     const toggleState = (e) => {
         e.preventDefault();
         setIsOpen(!isOpen)
-        !isOpen ? document.getElementById("nav").style.minWidth = '80%'  : document.getElementById("nav").style.minWidth = '100px';
+        if(!isOpen){
+            document.getElementById("nav").style.minWidth = '80%'
+            document.getElementById("sidebar").style.transform = 'translateY(-100%)'
+        }else{
+            document.getElementById("nav").style.minWidth = '100px'
+            document.getElementById("sidebar").style.transform = 'translateY(0)'
+        }
+        // !isOpen ? document.getElementById("nav").style.minWidth = '80%'  : document.getElementById("nav").style.minWidth = '100px';
     }
     return(
         <nav id="nav">
