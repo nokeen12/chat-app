@@ -43,9 +43,14 @@ input{
     max-width: 90%;
 }
 ul{
-    width: 90%;
+    width: 100%;
+    padding: 0;
 }
-
+#side > ul > li{
+    width: auto;
+    padding-left: 10px;
+    overflow-x: hidden;
+}
 @keyframes slideUp {
     0% {
         transform: translateY(0);

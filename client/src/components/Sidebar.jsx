@@ -62,9 +62,13 @@ function SearchList({loadChat}) {
                 onChange={handleChange}
                 value={searchInput} />
             <ul>
-                {userList.map((user, index) => (
-                    <li key={index} onClick={loadChat}>{user}</li>
-                ))}
+                {searchInput.length > 0 ?
+                    userList.map((user, index) => {
+                        if(user.includes(searchInput)){
+                            return <li key={index} onClick={loadChat}>{user}</li>
+                        }
+                    }) : <></>
+                }
             </ul>
         </div>
     )
