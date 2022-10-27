@@ -5,7 +5,6 @@ nav{
     min-width: 100px;
     align-items: center;
     overflow-x: hidden;
-    transition: min-Width 1s ease;
 }
 #sidebar{
     display: flex;
@@ -51,6 +50,10 @@ ul{
     padding-left: 10px;
     overflow-x: hidden;
 }
+#side > ul > li:hover{
+    background-color: rgba(255, 255, 255, 7%);
+    cursor: pointer;
+}
 @keyframes slideUp {
     0% {
         transform: translateY(0);
@@ -72,7 +75,7 @@ ul{
         transform: translateY(0);
     }
 }
-@keyframes slideRight {
+@keyframes stretchRight {
     0%{
         min-width: 100px;
     }
@@ -80,17 +83,46 @@ ul{
         min-width: 100px;
     }
     100%{
-        min-width: 80%;
+        min-width: 100%;
     }
 }
-@keyframes slideLeft {
+@keyframes stretchLeft {
     0%{
-        min-width: 80%;
+        min-width: 100%;
     }
     20%{
-        min-width: 80%;
+        min-width: 100%;
     }
     100%{
         min-width: 100px;
+    }
+}
+#settingsPage{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    animation: slideRight 1500ms forwards;
+}
+br{
+    background-color: red;
+    fill: red;
+    color: red;
+}
+@keyframes slideRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%);
+    }
+    40%{
+        opacity: 0;
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
     }
 }
