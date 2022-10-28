@@ -22,11 +22,11 @@ export default function Sidebar({loadChat}){
     return(
         <nav id="nav">
             <div id="sidebar">
-                <a href="/l">home</a>
                 <SearchList loadChat={loadChat}/>
             </div>
             {isOpen &&
                 <div id="settingsPage">
+                {/*Turn into seperate forms for editting user settings*/}
                     <h1>Theme</h1>
                     <br/> 
                     <p>Background Color:</p>

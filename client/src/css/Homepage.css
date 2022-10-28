@@ -40,6 +40,11 @@ button{
     margin-bottom: 20px;
     font-weight: 600;
 }
+button:hover{
+    cursor: pointer;
+    transform: translateY(-2px);
+    box-shadow:0 2px 5px black;
+}
 .signup-btn{
     background-color: darkorange;
     color: white;
