@@ -18,7 +18,7 @@ export default function Chatpage(){
     });
     socket.addEventListener('message', (e) => {
         showMessage(e.data, false) //adds messages from other users to screen
-        setNewMessage(e.data)
+        // setNewMessage(e.data)
     })
     function sendMessage(e){
         socket.send(e.message);
