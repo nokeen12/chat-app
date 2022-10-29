@@ -38,4 +38,4 @@ JavaScript, MongoDB, Express, React, Node.js, HTML, CSS
 
 ## Images
 
-![Homepage](images\SimpleChat-1.png)
+![Homepage](images/SimpleChat-1.png)
