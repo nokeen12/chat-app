@@ -39,3 +39,6 @@ JavaScript, MongoDB, Express, React, Node.js, HTML, CSS
 ## Images
 
 ![Homepage](images/SimpleChat-1.png)
+![Chatpage](images/SimpleChat-5.png)
+![Login](images/SimpleChat-4.png)
+![Signup](images/SimpleChat-3.png)
