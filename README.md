@@ -34,3 +34,8 @@ There may be many bugs as this is still in development
 ### Tech
 
 JavaScript, MongoDB, Express, React, Node.js, HTML, CSS
+
+
+## Images
+
+![Homepage](images\SimpleChat-1.png)
