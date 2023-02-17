@@ -4,7 +4,7 @@ import axios from "axios";
 import '../css/Homepage.css';
 import { AuthContext } from '../context/auth.context';
 
-const API_URL = 'http://localhost:5005';
+const API_URL = process.env.REACT_APP_API_URL;
 
 export default function Homepage(){
     const [user, setUser] = useState({

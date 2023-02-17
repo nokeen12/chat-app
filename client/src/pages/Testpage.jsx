@@ -4,7 +4,7 @@ import { useState, useContext } from "react";
 // import { WebSocketServer } from 'ws';
 
 
-const API_URL = 'http://localhost:5005';
+const API_URL = process.env.REACT_APP_API_URL;
 
 export default function Testpage(){
     const { user } = useContext(AuthContext);
